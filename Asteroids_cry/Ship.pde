@@ -2,6 +2,7 @@ class Ship extends GameObject{
 
   //Instance variables
   PVector direction;
+  int ROFTimer, threshold;
 
   //Constructors
   Ship () {
@@ -9,6 +10,8 @@ class Ship extends GameObject{
     location = new PVector(width/2, height/2);
     velocity = new PVector(0, 0);
     direction = new PVector(0, -0.1);
+    ROFTimer = 0;
+    threshold = 1;
   }
 
   //Behaviour Funcs
@@ -25,11 +28,25 @@ class Ship extends GameObject{
 
   void act() {
     super.act();
+    
+    ROFTimer++;
+    
+    //speed limiter
+    if (velocity.mag() > 35) {
+     velocity.setMag(35);
+    }
 
-    if (Wkey) velocity.add(direction);
+    //movement
+    if (Wkey) {
+      velocity.add(direction);
+      myObject.add(new Fire());
+    }
     if (Skey) velocity.sub(direction);
     if (Akey) direction.rotate(-radians(5));
     if (Dkey) direction.rotate(radians(5));
-    if (Spacekey) myBullet.add(new Bullet());
+    if (Spacekey && ROFTimer > threshold) {
+      myObject.add(new Bullet());
+      ROFTimer = 0;
+    }
   }
 }
