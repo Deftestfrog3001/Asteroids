@@ -32,8 +32,8 @@ class Ship extends GameObject{
     ROFTimer++;
     
     //speed limiter
-    if (velocity.mag() > 35) {
-     velocity.setMag(35);
+    if (velocity.mag() > 25) {
+     velocity.setMag(25);
     }
 
     //movement
