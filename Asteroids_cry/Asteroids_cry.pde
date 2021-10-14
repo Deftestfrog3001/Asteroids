@@ -4,8 +4,12 @@ ArrayList<GameObject> myObject;
 
 PFont Tron;
 PImage[] introgif;
+PImage SpaceShip;
+PImage Enemy;
+PImage Chrome;
 int NOF;
 int f;
+int AN;
 
 int mode;
 final int INTRO=0;
@@ -30,6 +34,13 @@ void setup () {
     f=f+1 ;
   }
   mode=INTRO;
+
+  myObject = new ArrayList<GameObject>();
+  myShip = new Ship();
+  myObject.add(myShip);
+  myObject.add(new Asteroid());
+  myObject.add(new Asteroid());
+  myObject.add(new Asteroid());
 }
 
 void draw () {

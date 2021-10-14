@@ -3,7 +3,7 @@ int ABY;
 int BBX;
 int BBY;
 
-void button(float x, float y, int c, int C, int scale) {
+void button(float x, float y, int c, int C, float scale) {
   pushMatrix();
   translate(x, y);
   rectMode(CENTER);

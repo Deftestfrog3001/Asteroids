@@ -1,10 +1,7 @@
 void game() {
-  myObject = new ArrayList<GameObject>();
-  myShip = new Ship();
-  myObject.add(myShip);
-  myObject.add(new Asteroid());
-  myObject.add(new Asteroid());
-  myObject.add(new Asteroid());
+ background(0);
+ text("lives :"+myShip.lives,100,50);
+
   
     int i = 0;
   while (i < myObject.size()) {
@@ -18,6 +15,10 @@ void game() {
       i++;
     }
   }
+  
+  /*GameObject myOb = myObject.get(i);
+  if (myOb instanceof Asteroid) {
+  }*/
 }
 
 void GameClicks() {
