@@ -20,6 +20,7 @@ class Fire extends GameObject {
   void show() {
    noStroke();
    fill(15,100,100,t);
+   //triangle(location.x,location.y,location.x-5,location.y-10,location.x+5,location.y-10);
    square(location.x,location.y,size);
   }
   
