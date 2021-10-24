@@ -1,9 +1,8 @@
 class GameObject {
   int lives;
-  PVector location;
-  PVector velocity;
+  PVector loc;
+  PVector vel;
   int size; 
-
   GameObject() {
   }
 
@@ -11,11 +10,12 @@ class GameObject {
   }
 
   void act () {
-    location.add(velocity);
+    loc.add(vel);
 
-    if (location.y < -25) location.y = height + 25;
-    if (location.y > height + 25) location.y = -25;
-    if (location.x < -25) location.x = width + 25;
-    if (location.x > width + 25) location.x = -25;
+    //wrap
+    if (loc.y < -25) loc.y = height + 25;
+    if (loc.y > height + 25) loc.y = -25;
+    if (loc.x < -25) loc.x = width + 25;
+    if (loc.x > width + 25) loc.x = -25;
   }
 }

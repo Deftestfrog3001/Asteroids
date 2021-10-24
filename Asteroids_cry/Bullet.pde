@@ -6,20 +6,20 @@ class Bullet extends GameObject {
   Bullet() {
     timer = 120;
     lives = 1; 
-    location = new PVector(myShip.location.x, myShip.location.y);
-    velocity = new PVector(myShip.direction.x, myShip.direction.y);
-    velocity.setMag(10);
-    velocity.add(myShip.velocity);
+    loc = new PVector(myShip.loc.x, myShip.loc.y);
+    vel = new PVector(myShip.direction.x, myShip.direction.y);
+    vel.setMag(10);
+    vel.add(myShip.vel);
     size = 10;
     nudge = myShip.direction.copy();
     nudge.setMag(25);
-    location.add(nudge);
+    loc.add(nudge);
   }
 
   void show () {
     pushMatrix();
-    translate(location.x,location.y);
-    rotate(velocity.heading());
+    translate(loc.x,loc.y);
+    rotate(vel.heading());
     strokeWeight(1);
     stroke(115, 100, 65);
     fill(115, 100, 100);

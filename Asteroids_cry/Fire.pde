@@ -7,20 +7,21 @@ class Fire extends GameObject {
     lives = 1;
     size = 10;
     t = 255;
-    location = myShip.location.copy();
-    velocity = myShip.direction.copy();
-    velocity.rotate(PI+random(-.25,.25));//180degrees
-    velocity.setMag(random(5,10));
+    loc = myShip.loc.copy();
+    vel = myShip.direction.copy();
+    vel.rotate(PI+random(-.25,.25));//180degrees
+    vel.setMag(random(5,10));
     nudge = myShip.direction.copy();
     nudge.rotate(PI);
     nudge.setMag(20);
-    location.add(nudge);
+    loc.add(nudge);
   }
   
   void show() {
    noStroke();
    fill(15,100,100,t);
-   square(location.x,location.y,size);
+   //triangle(loc.x,loc.y,loc.x-5,loc.y-10,loc.x+5,loc.y-10);
+   square(loc.x,loc.y,size);
   }
   
   void act() {
